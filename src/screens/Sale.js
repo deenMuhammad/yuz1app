@@ -215,10 +215,9 @@ const CategoryItem = (props) => {
     }}>
       <View style={styles.CTImageBox}>
         <Image
-          resizeMode='cover'
           style={styles.CTImage}
           defaultSource={require('../assets/placeholder.png')}
-          source={{ uri: `http://yuz1.org/static/categories/${props.index}.png` }}
+          source={{ uri: `https://teliera-public.herokuapp.com/static/categories/${props.index}.png` }}
         />
       </View>
       <Text style={styles.CTText}>

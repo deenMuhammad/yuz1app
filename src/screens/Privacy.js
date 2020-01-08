@@ -25,7 +25,7 @@ export default observer(class Privacy extends React.Component {
             uri: this.props.navigation.state.params ? (
               this.props.navigation.state.params.url
             ) : (
-              `https://yuz1.org/privacy/${this.getLang()}`
+              `https://teliera-public.herokuapp.com/privacy/${this.getLang()}`
             )
           }}
         />

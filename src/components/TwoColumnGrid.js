@@ -60,7 +60,7 @@ export default props => {
                 )
             }}
             disableVirtualization
-            //removeClippedSubviews
+        //removeClippedSubviews
         />
     )
 }
@@ -69,22 +69,21 @@ const ImgButton = props => {
     return (
         <View style={styles.imgButtonView} key={props.key}>
             <TouchableOpacity onPress={props.onPress} style={props.style} activeOpacity={0.7}>
-            <Image
-                resizeMode='cover'
-                style={styles.img}
-                source={{ uri: props.source }}
-                defaultSource={require('../assets/placeholder.png')}
-            />
+                <Image
+                    style={styles.img}
+                    source={{ uri: props.source }}
+                    defaultSource={require('../assets/placeholder.png')}
+                />
 
-            <Text style={[styles.title, props.bordered ? { width: w / 2 - 5 } : { width: w / 2 - w * 0.02 - 5 }]} numberOfLines={1} >{props.title}</Text>
-            {
-                props.discount > 0 && (<Text style={styles.discount}>{props.discount} {t('sum')}</Text>)
-            }
-            <View style={{ flexDirection: 'row' }}>
-                <Text style={styles.price}>{props.price} {t('sum')}</Text>
-                <Text style={[styles.price, { marginLeft: 'auto', marginRight: 10 }]}>...</Text>
-            </View>
-        </TouchableOpacity>
+                <Text style={[styles.title, props.bordered ? { width: w / 2 - 5 } : { width: w / 2 - w * 0.02 - 5 }]} numberOfLines={1} >{props.title}</Text>
+                {
+                    props.discount > 0 && (<Text style={styles.discount}>{props.discount} {t('sum')}</Text>)
+                }
+                <View style={{ flexDirection: 'row' }}>
+                    <Text style={styles.price}>{props.price} {t('sum')}</Text>
+                    <Text style={[styles.price, { marginLeft: 'auto', marginRight: 10 }]}>...</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -92,7 +91,7 @@ const ImgButton = props => {
 const w = dw * 0.98
 
 const styles = StyleSheet.create({
-    imgButtonView: {backgroundColor: '#eee', width: '50%'},
+    imgButtonView: { backgroundColor: '#eee', width: '50%' },
     cont: { paddingTop: dw * 0.01, marginLeft: 5, marginRight: 5, backgroundColor: '#fff', flexGrow: 1 },
     grid: { marginHorizontal: dw * 0.01, flexDirection: 'row', backgroundColor: 'rgb(245,245,245)' },
     img: {

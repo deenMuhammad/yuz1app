@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, StyleSheet, Dimensions, Image, Text } from 'react-native'
-import { API_URL } from 'react-native-dotenv'
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import t from '../locale/locale'
 
 export default props => {
@@ -61,7 +60,7 @@ const CategoryItem = (props) => (
             resizeMode='cover'
             style={styles.CIImage}
             defaultSource={require('../assets/placeholder.png')}
-            source={{ uri: `http://yuz1.org/static/categories/${props.image}.png` }}
+            source={{ uri: `https://teliera-public.herokuapp.com/static/categories/${props.image}.png` }}
         />
         <Text style={styles.PITitle}>{t(props.title)}</Text>
     </TouchableOpacity>

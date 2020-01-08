@@ -1,31 +1,20 @@
-import {
-  View,
-  Text,
-  Share,
-  Image,
-  UIManager,
-  StyleSheet,
-  Dimensions,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native'
-import React from 'react'
-import User from '../User'
-import theme from '../theme'
 import gql from 'graphql-tag'
-import t from '../locale/locale'
 import { observer } from 'mobx-react'
+import React from 'react'
+import { withApollo } from 'react-apollo'
+import { Dimensions, Image, ScrollView, Share, StyleSheet, Text, TouchableOpacity, UIManager, View } from 'react-native'
+import Communications from 'react-native-communications'
+import Icon from 'react-native-vector-icons/FontAwesome5'
 import Alert from '../components/Alert'
 import Button from '../components/Button'
-import { withApollo } from 'react-apollo'
-import Octagon from '../components/Octagon'
-import Spinner from '../components/Spinner'
 import Carousel from '../components/Carousel'
-import { API_URL } from 'react-native-dotenv'
+import Octagon from '../components/Octagon'
 import { togglePopup } from '../components/Popup'
+import Spinner from '../components/Spinner'
 import TwoColumnGrid from '../components/TwoColumnGrid'
-import Icon from 'react-native-vector-icons/FontAwesome5'
-import Communications from 'react-native-communications'
+import t from '../locale/locale'
+import theme from '../theme'
+import User from '../User'
 
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true)
 
@@ -103,7 +92,7 @@ export default observer(withApollo(class SingleProduct extends React.Component {
   }
 
   onShare = () => {
-    Share.share({ message: `${API_URL}/share/${this.state.product._id}` })
+    Share.share({ message: `https://https://teliera-public.herokuapp.com/share/${this.state.product._id}` })
       .catch(err => Alert(t('somethingWentWrong')))
   }
 

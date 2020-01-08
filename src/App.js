@@ -2,21 +2,19 @@ import React from 'react'
 import User from './User'
 import Root from './Router'
 import Auth from './screens/Auth'
-import { observer } from 'mobx-react'
+import {observer} from 'mobx-react'
 import Popup from './components/Popup'
-import { YellowBox, View, Image, Dimensions } from 'react-native'
-import { ApolloClient } from 'apollo-client'
-import { ApolloProvider } from 'react-apollo'
-import { API_URL } from 'react-native-dotenv'
-import { setContext } from 'apollo-link-context'
-import { createHttpLink } from 'apollo-link-http'
-import { AlertContainer } from './components/Alert'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import SplashScreen from 'react-native-splash-screen'
+import {Dimensions, Image, YellowBox} from 'react-native'
+import {ApolloClient} from 'apollo-client'
+import {ApolloProvider} from 'react-apollo'
+import {setContext} from 'apollo-link-context'
+import {createHttpLink} from 'apollo-link-http'
+import {AlertContainer} from './components/Alert'
+import {InMemoryCache} from 'apollo-cache-inmemory'
 
 YellowBox.ignoreWarnings(['source.uri', 'Task orphaned', 'Remote debugger'])
 
-const httpLink = createHttpLink({ credentials: 'same-origin', uri: `https://yuz1.org/graphql` })
+const httpLink = createHttpLink({ credentials: 'same-origin', uri: `https://teliera-server.herokuapp.com/graphql` })
 
 const authLink = setContext((_, { headers }) => (
   { headers: { ...headers, authorization: User.get('token') ? `${User.get('token')}` : '' } }

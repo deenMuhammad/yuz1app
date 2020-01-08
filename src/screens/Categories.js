@@ -1,17 +1,15 @@
-import React from 'react'
-import theme from '../theme'
-import gql from 'graphql-tag'
-import t from '../locale/locale'
 import deepFind from 'deep-find'
+import gql from 'graphql-tag'
 import { observer } from 'mobx-react'
-import Alert from '../components/Alert'
-import Button from '../components/Button'
+import React from 'react'
 import { withApollo } from 'react-apollo'
+import { Animated, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome5'
+import Alert from '../components/Alert'
 import Overlay from '../components/Overlay'
 import Spinner from '../components/Spinner'
-import { API_URL } from 'react-native-dotenv'
-import Icon from 'react-native-vector-icons/FontAwesome5'
-import { View, StyleSheet, TouchableOpacity, Text, Dimensions, Animated, Image, StatusBar } from 'react-native'
+import t from '../locale/locale'
+import theme from '../theme'
 
 const GET_CATEGORIES_QUERY = gql`query getCategory {getCategory}`
 
@@ -158,7 +156,7 @@ const Categ = props => props.isSale == false ?(
       resizeMode='cover'
       style={styles.categImg}
       defaultSource={require('../assets/placeholder.png')}
-      source={{ uri: `${API_URL}/static/categories/${props.title}.png` }}
+      source={{ uri: `https://teliera-public.herokuapp.com/static/categories/${props.title}.png` }}
     />
     <Text style={styles.categText}>{t(props.title)}</Text>
   </TouchableOpacity>
@@ -172,7 +170,7 @@ const Categ = props => props.isSale == false ?(
       resizeMode='cover'
       style={styles.categImg2}
       defaultSource={require('../assets/placeholder.png')}
-      source={{ uri: `${API_URL}/static/categories/${props.title}.png` }}
+        source={{ uri: `https://teliera-public.herokuapp.com/static/categories/${props.title}.png` }}
     />
     <Text style={[styles.categText, { marginTop: 'auto', marginBottom: 'auto' }]}>{t(props.title)}</Text>
   </TouchableOpacity>
