@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { detectBottom } from '../components/MasonaryGrid'
 import RefreshControl from '../components/RefreshControl'
 import { StyleSheet, Image, TouchableOpacity, Dimensions, FlatList, Text, View } from 'react-native'
+import { numberWithCommas } from '../utils/scaling'
 
 export default props => (
   <FlatList
@@ -63,9 +64,9 @@ const ImgButton = props => (
       <Text style={styles.name}>{String(props.name).slice(0, 16)}...</Text>
       <View style={styles.priceCont}>
         {props.discount !== 0 && (
-          <Text style={[styles.price, { textDecorationLine: 'line-through' }]}>{props.price}</Text>
+          <Text style={[styles.price, { textDecorationLine: 'line-through' }]}>{numberWithCommas(props.price)}</Text>
         )}
-        <Text style={[styles.price, { color: 'red' }]}>{props.discount !== 0 && ' → '}{props.price - props.discount} {t('sum')}</Text>
+        <Text style={[styles.price, { color: 'red' }]}>{props.discount !== 0 && ' → '}{numberWithCommas(props.price - props.discount)} {t('sum')}</Text>
       </View>
     </View>
   </TouchableOpacity>
